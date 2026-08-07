@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Bloomify — design tokens
+   Translated 1:1 from the approved static mockup's CSS variables.
+   ============================================================ */
+@theme {
+  /* Colors */
+  --color-ivory: #f7f3ea;
+  --color-ivory-deep: #f0eadc;
+  --color-ink: #26241f;
+  --color-ink-soft: #5b564c;
+  --color-gold: #a9822e;
+  --color-gold-light: #c7a75b;
+  --color-green: #3c4a3b;
+  --color-hairline: rgba(38, 36, 31, 0.18);
+  --color-hairline-strong: rgba(38, 36, 31, 0.3);
+
+  /* Type */
+  --font-display: "Playfair Display", "Times New Roman", serif;
+  --font-body: "EB Garamond", Georgia, serif;
+  --font-label: "Jost", "Helvetica Neue", sans-serif;
+
+  /* Easing, shared with Framer Motion variants */
+  --ease-gallery: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
