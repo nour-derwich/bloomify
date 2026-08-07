@@ -1,6 +1,6 @@
 # Bloomify
 
-A one-page portfolio and commission site for painter **Ronya** — custom portraits, floral
+A one-page portfolio and commission site for painter **Rania Derouich** — custom portraits, floral
 still lifes, and made-to-order commissions.
 
 Built with Vite + React + TypeScript, Tailwind CSS, and Framer Motion.

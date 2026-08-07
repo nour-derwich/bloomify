@@ -32,7 +32,7 @@ export function Hero() {
             variants={fadeUp()}
             className="mx-auto mb-8 max-w-115 font-body text-xl text-ink-soft lg:mx-0"
           >
-            Ronya paints custom portraits and floral still lifes in oil and acrylic, built up
+            Rania Derouich paints custom portraits and floral still lifes in oil and acrylic, built up
             stroke by stroke and finished with a hand-signed plate. Commission a piece as
             singular as the person or moment it holds.
           </motion.p>

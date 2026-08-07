@@ -15,7 +15,7 @@ export const processSteps = [
   {
     no: "01",
     title: "Share Your Vision",
-    body: "Send a reference photo, a colour palette, or just a feeling — florals, a portrait, or something in between. Ronya will confirm size, medium, and timeline.",
+    body: "Send a reference photo, a colour palette, or just a feeling — florals, a portrait, or something in between. Rania Derouich will confirm size, medium, and timeline.",
   },
   {
     no: "02",

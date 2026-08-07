@@ -30,11 +30,11 @@ export function About() {
             variants={fadeUp()}
             className="mb-6 font-display text-[32px] font-semibold text-ink sm:text-[44px]"
           >
-            Ronya
+            Rania Derouich
           </motion.h2>
 
           <motion.p variants={fadeUp()} className="mb-[18px] font-body text-lg text-ink-soft sm:text-xl">
-            Ronya is a self-taught painter working in oil and acrylic, drawn to the texture of a
+            Rania Derouich is a self-taught painter working in oil and acrylic, drawn to the texture of a
             heavily loaded brush and the quiet drama of a single bloom. What began as a way to
             paint gifts for family has grown into a full studio practice built almost entirely on
             commission.
@@ -42,7 +42,7 @@ export function About() {
 
           <motion.p variants={fadeUp()} className="mb-10 font-body text-lg text-ink-soft sm:text-xl">
             Every piece starts as a conversation — a favourite photo, a colour that means
-            something, a flower that was in the room the day it mattered. From there, Ronya
+            something, a flower that was in the room the day it mattered. From there, Rania Derouich
             sketches, mixes, and builds the painting up in layers until it's ready to sign and
             send home.
           </motion.p>

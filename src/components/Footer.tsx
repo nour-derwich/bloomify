@@ -17,7 +17,7 @@ export function Footer() {
             <a href="#top" className="font-display text-xl font-semibold text-ivory">
               Bloomify
               <span className="mt-0.5 block font-label text-[10px] font-normal tracking-[3px] text-ivory/55 uppercase">
-                Paintings by Ronya
+                Paintings by Rania Derouich
               </span>
             </a>
             <p className="mt-4.5 max-w-80 font-body text-[17px] text-ivory/65">
@@ -67,7 +67,7 @@ export function Footer() {
           className="flex flex-wrap items-center justify-between gap-3 pt-7"
         >
           <p className="font-label text-xs tracking-wide text-ivory/50">
-            © 2026 Bloomify — Paintings by Ronya. All rights reserved.
+            © 2026 Bloomify — Paintings by Rania Derouich. All rights reserved.
           </p>
           <p className="font-label text-xs tracking-wide text-ivory/50">Site by Bloomify Studio</p>
         </motion.div>

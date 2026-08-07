@@ -20,7 +20,7 @@ export function Nav() {
         <a href="#top" className="font-display text-xl font-semibold text-ink sm:text-[22px]">
           Bloomify
           <span className="mt-0.5 hidden font-label text-[10px] font-normal tracking-[3px] text-ink-soft uppercase sm:block">
-            Paintings by Ronya
+            Paintings by Rania Derouich
           </span>
         </a>
 

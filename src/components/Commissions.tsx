@@ -25,7 +25,7 @@ export function Commissions() {
             Own an Original, Made for You
           </motion.h2>
           <motion.p variants={fadeUp()} className="font-body text-lg text-ink-soft sm:text-xl">
-            Every commission is painted from scratch, start to finish, in Ronya's studio — no
+            Every commission is painted from scratch, start to finish, in Rania Derouich's studio — no
             templates, no prints.
           </motion.p>
         </motion.div>

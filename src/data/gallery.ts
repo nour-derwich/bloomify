@@ -19,7 +19,7 @@ export const heroPainting = {
 
 export const aboutPhoto = {
   src: aboutArtistAtWork,
-  alt: "Ronya's hand holding a fine brush, mid-stroke, above a canvas in her studio.",
+  alt: "Rania Derouich's hand holding a fine brush, mid-stroke, above a canvas in her studio.",
 };
 
 export const commissionsBackground = {
@@ -38,7 +38,7 @@ export interface GalleryPiece {
 export const galleryPieces: GalleryPiece[] = [
   {
     src: galleryRoseMagnolia,
-    alt: "Still life oil painting of a deep red rose and two pink magnolia blooms in a blue glass vase, signed Ronya.",
+    alt: "Still life oil painting of a deep red rose and two pink magnolia blooms in a blue glass vase, signed Rania Derouich.",
     plateNo: "No. 02",
     title: "Rose & Magnolia",
     medium: "Floral Still Life · Oil on Canvas",
