@@ -3,7 +3,7 @@ import { OrnateFrame } from "@/components/OrnateFrame";
 import { RuleDivider } from "@/components/RuleDivider";
 import { heroPainting, salonWallThumbs } from "@/data/gallery";
 import { heroContent } from "@/data/content";
-import { fadeUp, staggerContainer } from "@/lib/motion";
+import { EASE, fadeUp, staggerContainer } from "@/lib/motion";
 
 /**
  * Loose salon-wall placement for the small background thumbnails — percentage
@@ -87,7 +87,19 @@ export function SalonWallHero() {
           {heroContent.phonetic}
         </motion.p>
 
-        <motion.div variants={fadeUp(0, 30)} className="mx-auto mb-10 w-full max-w-90 sm:max-w-105">
+        {/*
+          Deliberately NOT part of the shared stagger above: this is the LCP element, so it
+          gets its own near-immediate fade-in (independent initial/animate breaks variant
+          inheritance) instead of waiting through 3 siblings' worth of staggerChildren delay.
+          Framer Motion still renders it painted at mount either way — this only changes how
+          long the fade-in itself takes before it visually settles.
+        */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
+          className="mx-auto mb-10 w-full max-w-90 sm:max-w-105"
+        >
           <OrnateFrame
             src={heroPainting.src}
             srcWebp={heroPainting.srcWebp}
