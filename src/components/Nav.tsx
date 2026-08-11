@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { navLinks } from "@/data/content";
 import { useScrolled } from "@/lib/useScrolled";
@@ -7,6 +7,16 @@ import { EASE } from "@/lib/motion";
 export function Nav() {
   const scrolled = useScrolled(40);
   const [open, setOpen] = useState(false);
+
+  // Escape closes the mobile menu from anywhere, matching native disclosure-widget behaviour.
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
     <header
@@ -24,7 +34,7 @@ export function Nav() {
           </span>
         </a>
 
-        <nav aria-label="Primary" className="hidden items-center gap-10 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-10 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -39,7 +49,7 @@ export function Nav() {
 
         <a
           href="#commissions"
-          className="hidden border border-hairline-strong px-[22px] py-[11px] font-label text-xs tracking-[2px] text-ink uppercase transition-colors hover:border-gold hover:text-gold md:inline-block"
+          className="hidden border border-hairline-strong px-[22px] py-[11px] font-label text-xs tracking-[2px] whitespace-nowrap text-ink uppercase transition-colors hover:border-gold hover:text-gold lg:inline-block"
         >
           Commission a Piece
         </a>
@@ -49,7 +59,7 @@ export function Nav() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex flex-col gap-[5px] p-1.5 md:hidden"
+          className="flex flex-col gap-[5px] p-1.5 lg:hidden"
         >
           <motion.span
             animate={open ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
@@ -77,7 +87,7 @@ export function Nav() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: EASE }}
-            className="overflow-hidden border-t border-hairline bg-ivory md:hidden"
+            className="overflow-hidden border-t border-hairline bg-ivory lg:hidden"
           >
             <div className="flex flex-col gap-1 px-8 py-6">
               {navLinks.map((link) => (

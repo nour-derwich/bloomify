@@ -18,8 +18,16 @@
       content="Custom portraits, floral still lifes, and commissioned paintings, hand-built in thick, textured strokes."
     />
     <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Bloomify" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bloomify — Original Portraits & Floral Paintings by Rania Derouich" />
+    <meta
+      name="twitter:description"
+      content="Custom portraits, floral still lifes, and commissioned paintings, hand-built in thick, textured strokes."
+    />
+    <meta name="twitter:image" content="/og-image.jpg" />
     <meta name="theme-color" content="#F7F3EA" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -27,10 +35,29 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--
+      Loaded non-render-blocking: the stylesheet is fetched under media="print" (so the
+      browser doesn't wait on it to paint), then swapped to media="all" once it arrives.
+      &display=swap in the Google Fonts URL means fallback-serif text is visible immediately
+      either way — this only removes the blocking wait, it doesn't change what renders.
+    -->
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Parisienne&family=Jost:wght@400;500;600&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Parisienne&family=Jost:wght@400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Parisienne&family=Jost:wght@400;500;600&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>

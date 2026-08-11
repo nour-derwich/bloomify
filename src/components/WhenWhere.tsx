@@ -13,6 +13,9 @@ export function WhenWhere() {
         variants={staggerContainer(0.12)}
         className="mx-auto max-w-295 px-8"
       >
+        {/* Visually hidden — gives this section its own heading-outline entry above the h3 columns below. */}
+        <h2 className="sr-only">When &amp; Where to Find the Work</h2>
+
         <motion.div variants={fadeUp()} className="mb-14 flex justify-center">
           <RuleDivider align="center" triggerOnView />
         </motion.div>

@@ -21,9 +21,9 @@ export function InstagramStrip() {
             >
               Follow Along
             </motion.span>
-            <motion.h3 variants={fadeUp()} className="font-display text-[26px] font-semibold text-ink">
+            <motion.h2 variants={fadeUp()} className="font-display text-[26px] font-semibold text-ink">
               @{instagramHandle}
-            </motion.h3>
+            </motion.h2>
           </div>
           <motion.a
             variants={fadeUp()}

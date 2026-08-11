@@ -25,10 +25,13 @@ export function Footer() {
             </p>
           </motion.div>
 
-          <motion.div variants={fadeUp()}>
-            <span className="mb-4.5 block font-label text-[12.5px] tracking-[3px] text-gold-light uppercase">
+          <motion.nav variants={fadeUp()} aria-labelledby="footer-explore-heading">
+            <h2
+              id="footer-explore-heading"
+              className="mb-4.5 block font-label text-[12.5px] font-normal tracking-[3px] text-gold-light uppercase"
+            >
               Explore
-            </span>
+            </h2>
             <ul className="space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.href}>
@@ -41,12 +44,15 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.nav>
 
-          <motion.div variants={fadeUp()}>
-            <span className="mb-4.5 block font-label text-[12.5px] tracking-[3px] text-gold-light uppercase">
+          <motion.nav variants={fadeUp()} aria-labelledby="footer-contact-heading">
+            <h2
+              id="footer-contact-heading"
+              className="mb-4.5 block font-label text-[12.5px] font-normal tracking-[3px] text-gold-light uppercase"
+            >
               Contact
-            </span>
+            </h2>
             <ul className="space-y-3">
               {contactLinks.map((link) => {
                 const external = link.href.startsWith("http");
@@ -64,7 +70,7 @@ export function Footer() {
                 );
               })}
             </ul>
-          </motion.div>
+          </motion.nav>
         </div>
 
         <motion.div
