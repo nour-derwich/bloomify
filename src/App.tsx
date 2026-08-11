@@ -1,9 +1,12 @@
 import { MotionConfig } from "framer-motion";
 import { Nav } from "@/components/Nav";
-import { Hero } from "@/components/Hero";
+import { SalonWallHero } from "@/components/SalonWallHero";
 import { About } from "@/components/About";
+import { FloralBand } from "@/components/FloralBand";
+import { WhenWhere } from "@/components/WhenWhere";
 import { Gallery } from "@/components/Gallery";
 import { Commissions } from "@/components/Commissions";
+import { RSVPBadge } from "@/components/RSVPBadge";
 import { InstagramStrip } from "@/components/InstagramStrip";
 import { Footer } from "@/components/Footer";
 
@@ -12,12 +15,21 @@ export default function App() {
     // reducedMotion="user" makes every transform/layout animation in the tree
     // respect prefers-reduced-motion automatically; opacity fades still play.
     <MotionConfig reducedMotion="user">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-60 focus:bg-ink focus:px-5 focus:py-3 focus:font-label focus:text-sm focus:tracking-wide focus:text-ivory focus:uppercase"
+      >
+        Skip to content
+      </a>
       <Nav />
-      <main>
-        <Hero />
+      <main id="main-content">
+        <SalonWallHero />
         <About />
+        <FloralBand />
+        <WhenWhere />
         <Gallery />
         <Commissions />
+        <RSVPBadge />
         <InstagramStrip />
       </main>
       <Footer />

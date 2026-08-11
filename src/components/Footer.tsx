@@ -4,7 +4,7 @@ import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-ink py-18 pb-9 text-ivory">
+    <footer id="contact" className="bg-wine-deep py-18 pb-9 text-ivory">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -12,7 +12,7 @@ export function Footer() {
         variants={staggerContainer(0.1)}
         className="mx-auto max-w-295 px-8"
       >
-        <div className="grid grid-cols-1 gap-12 border-b border-ivory/14 pb-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
+        <div className="grid grid-cols-1 gap-12 border-b border-wine-line pb-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
           <motion.div variants={fadeUp()} className="sm:col-span-2 lg:col-span-1">
             <a href="#top" className="font-display text-xl font-semibold text-ivory">
               Bloomify
@@ -20,7 +20,7 @@ export function Footer() {
                 Paintings by Rania Derouich
               </span>
             </a>
-            <p className="mt-4.5 max-w-80 font-body text-[17px] text-ivory/65">
+            <p className="mt-4.5 max-w-80 font-body text-xl font-medium text-ivory/65">
               Hand-painted portraits and floral still lifes, made to order from a small studio.
             </p>
           </motion.div>
@@ -34,7 +34,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="border-b border-transparent text-[17px] text-ivory/78 transition-colors hover:border-gold-light hover:text-gold-light"
+                    className="border-b border-transparent text-lg text-ivory/78 transition-colors hover:border-gold-light hover:text-gold-light"
                   >
                     {link.label}
                   </a>
@@ -48,16 +48,21 @@ export function Footer() {
               Contact
             </span>
             <ul className="space-y-3">
-              {contactLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="border-b border-transparent text-[17px] text-ivory/78 transition-colors hover:border-gold-light hover:text-gold-light"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {contactLinks.map((link) => {
+                const external = link.href.startsWith("http");
+                return (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noreferrer" : undefined}
+                      className="border-b border-transparent text-lg text-ivory/78 transition-colors hover:border-gold-light hover:text-gold-light"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </motion.div>
         </div>
