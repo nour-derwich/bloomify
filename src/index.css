@@ -16,10 +16,16 @@
   --color-hairline: rgba(38, 36, 31, 0.18);
   --color-hairline-strong: rgba(38, 36, 31, 0.3);
 
+  /* Wine — the dark accent sections (When/Where block, RSVP badge) */
+  --color-wine: #4a1421;
+  --color-wine-deep: #34101a;
+  --color-wine-line: rgba(247, 243, 234, 0.16);
+
   /* Type */
   --font-display: "Playfair Display", "Times New Roman", serif;
-  --font-body: "EB Garamond", Georgia, serif;
+  --font-body: "Cormorant Garamond", Georgia, serif;
   --font-label: "Jost", "Helvetica Neue", sans-serif;
+  --font-script: "Parisienne", cursive;
 
   /* Easing, shared with Framer Motion variants */
   --ease-gallery: cubic-bezier(0.4, 0, 0.2, 1);

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { instagramPosts } from "@/data/gallery";
+import { instagramHandle, instagramUrl } from "@/data/content";
 import { EASE, fadeUp, frameReveal, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function InstagramStrip() {
@@ -21,12 +22,14 @@ export function InstagramStrip() {
               Follow Along
             </motion.span>
             <motion.h3 variants={fadeUp()} className="font-display text-[26px] font-semibold text-ink">
-              @bloomify.studio
+              @{instagramHandle}
             </motion.h3>
           </div>
           <motion.a
             variants={fadeUp()}
-            href="#"
+            href={instagramUrl}
+            target="_blank"
+            rel="noreferrer"
             className="border-b border-hairline-strong pb-[3px] font-label text-[13px] tracking-[2px] text-ink uppercase transition-colors hover:border-gold hover:text-gold"
           >
             Follow on Instagram
@@ -44,21 +47,26 @@ export function InstagramStrip() {
             <motion.a
               key={post.label}
               variants={frameReveal}
-              href="#"
-              aria-label={`View post: ${post.label}`}
+              href={instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`View post: ${post.label} (opens Instagram)`}
               className={`group relative block aspect-square overflow-hidden bg-ink ${
                 i >= 3 ? "hidden sm:block" : ""
               }`}
             >
-              <motion.img
-                src={post.src}
-                alt={post.alt}
-                loading="lazy"
-                decoding="async"
-                whileHover={{ scale: 1.08 }}
-                transition={{ duration: 0.6, ease: EASE }}
-                className="h-full w-full object-cover"
-              />
+              <picture>
+                <source srcSet={post.srcWebp} type="image/webp" />
+                <motion.img
+                  src={post.src}
+                  alt={post.alt}
+                  loading="lazy"
+                  decoding="async"
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.6, ease: EASE }}
+                  className="h-full w-full object-cover"
+                />
+              </picture>
               <span className="absolute inset-0 bg-ink/0 transition-colors duration-300 group-hover:bg-ink/20" />
             </motion.a>
           ))}

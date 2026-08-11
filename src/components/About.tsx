@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FramedImage } from "@/components/FramedImage";
+import { GiltFrame } from "@/components/GiltFrame";
 import { aboutPhoto } from "@/data/gallery";
 import { stats } from "@/data/content";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
@@ -15,13 +15,19 @@ export function About() {
         className="mx-auto grid max-w-295 grid-cols-1 items-center gap-12 px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20"
       >
         <motion.div variants={fadeUp(0, 30)} className="mx-auto w-full max-w-105 lg:max-w-none">
-          <FramedImage src={aboutPhoto.src} alt={aboutPhoto.alt} />
+          <GiltFrame
+            src={aboutPhoto.src}
+            srcWebp={aboutPhoto.srcWebp}
+            alt={aboutPhoto.alt}
+            width={aboutPhoto.width}
+            height={aboutPhoto.height}
+          />
         </motion.div>
 
         <div>
           <motion.span
             variants={fadeUp()}
-            className="mb-[18px] block font-label text-[12.5px] font-medium tracking-[3px] text-gold uppercase"
+            className="mb-4.5 block font-label text-[12.5px] font-medium tracking-[3px] text-gold uppercase"
           >
             The Artist
           </motion.span>
@@ -30,19 +36,25 @@ export function About() {
             variants={fadeUp()}
             className="mb-6 font-display text-[32px] font-semibold text-ink sm:text-[44px]"
           >
-            Rania Derouich
+            Our Story
           </motion.h2>
 
-          <motion.p variants={fadeUp()} className="mb-[18px] font-body text-lg text-ink-soft sm:text-xl">
-            Rania Derouich is a self-taught painter working in oil and acrylic, drawn to the texture of a
-            heavily loaded brush and the quiet drama of a single bloom. What began as a way to
-            paint gifts for family has grown into a full studio practice built almost entirely on
-            commission.
+          <motion.p
+            variants={fadeUp()}
+            className="mb-4.5 font-body text-xl font-medium text-ink-soft sm:text-2xl"
+          >
+            Rania Derouich is a self-taught painter working in oil and acrylic, drawn to the
+            texture of a heavily loaded brush and the quiet drama of a single bloom. What began
+            as a way to paint gifts for family has grown into a full studio practice built almost
+            entirely on commission.
           </motion.p>
 
-          <motion.p variants={fadeUp()} className="mb-10 font-body text-lg text-ink-soft sm:text-xl">
+          <motion.p
+            variants={fadeUp()}
+            className="mb-10 font-body text-xl font-medium text-ink-soft sm:text-2xl"
+          >
             Every piece starts as a conversation — a favourite photo, a colour that means
-            something, a flower that was in the room the day it mattered. From there, Rania Derouich
+            something, a flower that was in the room the day it mattered. From there, Rania
             sketches, mixes, and builds the painting up in layers until it's ready to sign and
             send home.
           </motion.p>
