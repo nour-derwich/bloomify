@@ -4,27 +4,26 @@ import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function Commissions() {
   return (
-    <section id="commissions" className="bg-ivory-deep py-24 sm:py-32">
+    <section id="commissions" className="bg-cream-deep py-27.5">
       <div className="mx-auto max-w-295 px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer(0.1)}
-          className="mx-auto mb-16 max-w-160 text-center"
+          className="mx-auto mb-15 max-w-155 text-center"
         >
           <motion.span
             variants={fadeUp()}
-            className="mb-3.5 block font-label text-[12.5px] font-medium tracking-[3px] text-gold uppercase"
+            className="mb-4 inline-block font-label text-xs tracking-[4px] text-wine uppercase"
           >
             Commissions
           </motion.span>
-          <motion.h2 variants={fadeUp()} className="mb-4 font-display text-[32px] font-semibold text-ink sm:text-[44px]">
-            Own an Original, Made for You
+          <motion.h2 variants={fadeUp()} className="font-display text-[30px] font-semibold text-ink sm:text-[44px]">
+            A painting made for you
           </motion.h2>
-          <motion.p variants={fadeUp()} className="font-body text-xl font-medium text-ink-soft sm:text-2xl">
-            Every commission is painted from scratch, start to finish, in the studio — no
-            templates, no prints.
+          <motion.p variants={fadeUp()} className="mt-4 font-body text-lg text-ink-soft">
+            A simple, considered process — from first enquiry to finished canvas.
           </motion.p>
         </motion.div>
 
@@ -33,13 +32,19 @@ export function Commissions() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer(0.12)}
-          className="grid grid-cols-1 gap-10 sm:grid-cols-3"
+          className="mt-2.5 grid grid-cols-1 border-t border-hairline sm:grid-cols-3 sm:border-b"
         >
-          {processSteps.map((step) => (
-            <motion.div key={step.no} variants={fadeUp()} className="text-center sm:text-left">
-              <div className="mb-4.5 font-display text-[42px] text-gold-light italic">{step.no}</div>
-              <h3 className="mb-3 font-display text-2xl font-semibold text-ink">{step.title}</h3>
-              <p className="font-body text-xl font-medium text-ink-soft">{step.body}</p>
+          {processSteps.map((step, i) => (
+            <motion.div
+              key={step.no}
+              variants={fadeUp()}
+              className={`border-hairline px-8.5 py-10.5 text-center ${
+                i === 0 ? "border-t-0 sm:border-l-0" : "border-t sm:border-t-0 sm:border-l"
+              }`}
+            >
+              <span className="font-display text-[28px] text-wine italic">{step.no}</span>
+              <h3 className="mt-3.5 mb-2.5 font-display text-xl font-semibold text-ink">{step.title}</h3>
+              <p className="font-body text-base text-ink-soft">{step.body}</p>
             </motion.div>
           ))}
         </motion.div>

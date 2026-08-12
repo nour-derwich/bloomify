@@ -1,12 +1,13 @@
 import { MotionConfig } from "framer-motion";
 import { Nav } from "@/components/Nav";
 import { SalonWallHero } from "@/components/SalonWallHero";
+import { ScallopDivider } from "@/components/ScallopDivider";
 import { About } from "@/components/About";
 import { FloralBand } from "@/components/FloralBand";
 import { WhenWhere } from "@/components/WhenWhere";
 import { Gallery } from "@/components/Gallery";
 import { Commissions } from "@/components/Commissions";
-import { RSVPBadge } from "@/components/RSVPBadge";
+import { DoilyBadge } from "@/components/DoilyBadge";
 import { InstagramStrip } from "@/components/InstagramStrip";
 import { Footer } from "@/components/Footer";
 
@@ -24,12 +25,13 @@ export default function App() {
       <Nav />
       <main id="main-content">
         <SalonWallHero />
+        <ScallopDivider />
         <About />
         <FloralBand />
         <WhenWhere />
         <Gallery />
         <Commissions />
-        <RSVPBadge />
+        <DoilyBadge />
         <InstagramStrip />
       </main>
       <Footer />

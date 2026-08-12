@@ -1,6 +1,4 @@
 // Full-size images (JPEG, re-encoded ~82q, longest edge capped 1400px) + WebP twins.
-import heroBloomReverieJpg from "@/assets/images/hero-bloom-reverie.jpg";
-import heroBloomReverieWebp from "@/assets/images/hero-bloom-reverie.webp";
 import aboutArtistAtWorkJpg from "@/assets/images/about-artist-at-work.jpg";
 import aboutArtistAtWorkWebp from "@/assets/images/about-artist-at-work.webp";
 import galleryRoseMagnoliaJpg from "@/assets/images/gallery-rose-magnolia.jpg";
@@ -19,12 +17,10 @@ import processPaletteDetailJpg from "@/assets/images/process-palette-detail.jpg"
 import processPaletteDetailWebp from "@/assets/images/process-palette-detail.webp";
 import processEyeDetailJpg from "@/assets/images/process-eye-detail.jpg";
 import processEyeDetailWebp from "@/assets/images/process-eye-detail.webp";
+import galleryMonaLisaPourJpg from "@/assets/images/gallery-mona-lisa-pour.jpg";
+import galleryMonaLisaPourWebp from "@/assets/images/gallery-mona-lisa-pour.webp";
 
 // Small thumbs (~260px, JPEG + WebP) for the salon-wall background tiles.
-import thumbHero from "@/assets/images/thumb-hero-bloom-reverie.jpg";
-import thumbHeroWebp from "@/assets/images/thumb-hero-bloom-reverie.webp";
-import thumbAbout from "@/assets/images/thumb-about-artist-at-work.jpg";
-import thumbAboutWebp from "@/assets/images/thumb-about-artist-at-work.webp";
 import thumbRoseMagnolia from "@/assets/images/thumb-gallery-rose-magnolia.jpg";
 import thumbRoseMagnoliaWebp from "@/assets/images/thumb-gallery-rose-magnolia.webp";
 import thumbWildflower from "@/assets/images/thumb-gallery-wildflower-hour.jpg";
@@ -39,8 +35,6 @@ import thumbSweetheart from "@/assets/images/thumb-gallery-sweetheart-set.jpg";
 import thumbSweetheartWebp from "@/assets/images/thumb-gallery-sweetheart-set.webp";
 import thumbPalette from "@/assets/images/thumb-process-palette-detail.jpg";
 import thumbPaletteWebp from "@/assets/images/thumb-process-palette-detail.webp";
-import thumbEye from "@/assets/images/thumb-process-eye-detail.jpg";
-import thumbEyeWebp from "@/assets/images/thumb-process-eye-detail.webp";
 
 export interface Picture {
   src: string;
@@ -50,18 +44,19 @@ export interface Picture {
   alt: string;
 }
 
-export const heroPainting: Picture & { plateNo: string; title: string; medium: string } = {
-  src: heroBloomReverieJpg,
-  srcWebp: heroBloomReverieWebp,
-  width: 932,
-  height: 1400,
-  alt: "Textured oil portrait of a woman in a starry-night-patterned gown, framed by two large painted roses at her shoulders.",
-  plateNo: "No. 01",
-  title: "Bloom & Reverie",
-  medium: "Custom Portrait · Oil on Canvas",
+/**
+ * The hero's centerpiece grand frame — "Study in Blue," an in-progress oil portrait.
+ * Note: this is a full-size (non-thumb) image since it's the LCP element.
+ */
+export const heroGrandFrame: Picture = {
+  src: processEyeDetailJpg,
+  srcWebp: processEyeDetailWebp,
+  width: 736,
+  height: 981,
+  alt: "Close-up of a fine blue-toned eye being painted on canvas, mid-brushstroke — an in-progress oil portrait study.",
 };
 
-export const aboutPhoto: Picture = {
+export const storyPhoto: Picture = {
   src: aboutArtistAtWorkJpg,
   srcWebp: aboutArtistAtWorkWebp,
   width: 736,
@@ -69,21 +64,21 @@ export const aboutPhoto: Picture = {
   alt: "Rania Derouich's hand holding a fine brush, mid-stroke, above a canvas in her studio.",
 };
 
-/** The circular photo that straddles the seam between the floral band and the next section. */
-export const floralBandPhoto: Picture = {
-  src: processEyeDetailJpg,
-  srcWebp: processEyeDetailWebp,
-  width: 736,
-  height: 981,
-  alt: "Close-up of a fine blue-toned eye being painted on canvas, mid-brushstroke.",
+/** Floral band: the top image strip, and the circular photo that straddles the seam beneath it. */
+export const floralBandImage: Picture = {
+  src: gallerySweetheartSetJpg,
+  srcWebp: gallerySweetheartSetWebp,
+  width: 675,
+  height: 1200,
+  alt: "Set of four small custom canvases with a love lettering piece, a heart and ladybird, a martini glass, and a bow motif.",
 };
 
-export const floralBandImage: Picture = {
-  src: galleryWildflowerHourJpg,
-  srcWebp: galleryWildflowerHourWebp,
-  width: 736,
-  height: 920,
-  alt: "Wide acrylic painting of a wildflower meadow at dusk, with butterflies rising against a pink and gold sky.",
+export const floralBandOval: Picture = {
+  src: galleryRoseMagnoliaJpg,
+  srcWebp: galleryRoseMagnoliaWebp,
+  width: 955,
+  height: 1291,
+  alt: "A Bloomify rose and magnolia still life painting, displayed at home.",
 };
 
 export interface GalleryPiece extends Picture {
@@ -94,6 +89,16 @@ export interface GalleryPiece extends Picture {
 
 export const galleryPieces: GalleryPiece[] = [
   {
+    src: galleryWildflowerHourJpg,
+    srcWebp: galleryWildflowerHourWebp,
+    width: 736,
+    height: 920,
+    alt: "Wide acrylic painting of a wildflower meadow at dusk, with butterflies rising against a pink and gold sky.",
+    plateNo: "No. 01",
+    title: "Wildflower Field",
+    medium: "Acrylic on Canvas",
+  },
+  {
     src: galleryRoseMagnoliaJpg,
     srcWebp: galleryRoseMagnoliaWebp,
     width: 955,
@@ -101,17 +106,17 @@ export const galleryPieces: GalleryPiece[] = [
     alt: "Still life oil painting of a deep red rose and two pink magnolia blooms in a blue glass vase, signed Rania Derouich.",
     plateNo: "No. 02",
     title: "Rose & Magnolia",
-    medium: "Floral Still Life · Oil on Canvas",
+    medium: "Oil on Canvas",
   },
   {
-    src: galleryWildflowerHourJpg,
-    srcWebp: galleryWildflowerHourWebp,
+    src: processEyeDetailJpg,
+    srcWebp: processEyeDetailWebp,
     width: 736,
-    height: 920,
-    alt: "Wide acrylic painting of a wildflower meadow at dusk, with butterflies rising against a pink and gold sky.",
+    height: 981,
+    alt: "Close-up of a fine blue-toned eye being painted on canvas, mid-brushstroke.",
     plateNo: "No. 03",
-    title: "Wildflower Hour",
-    medium: "Floral Still Life · Acrylic on Canvas",
+    title: "Study in Blue",
+    medium: "Oil, In Progress",
   },
   {
     src: galleryQuietTulipJpg,
@@ -121,7 +126,7 @@ export const galleryPieces: GalleryPiece[] = [
     alt: "Modern flat-colour painting of a single cream tulip against a dusty pink background with abstract ribbon shapes.",
     plateNo: "No. 04",
     title: "Quiet Tulip",
-    medium: "Floral Still Life · Acrylic on Canvas",
+    medium: "Acrylic on Canvas",
   },
   {
     src: galleryCliffsideBloomJpg,
@@ -130,8 +135,8 @@ export const galleryPieces: GalleryPiece[] = [
     height: 981,
     alt: "Small square painting of pink bougainvillea over a pale blue sky with birds in flight.",
     plateNo: "No. 05",
-    title: "Cliffside Bloom",
-    medium: "Floral Still Life · Acrylic on Canvas",
+    title: "Coastal Bloom",
+    medium: "Acrylic, Miniature",
   },
   {
     src: galleryNo10BackViewJpg,
@@ -140,18 +145,21 @@ export const galleryPieces: GalleryPiece[] = [
     height: 981,
     alt: "Miniature custom portrait on a mini easel, painted from behind, of a footballer in a number ten jersey.",
     plateNo: "No. 06",
-    title: "No. 10, Back View",
-    medium: "Custom Portrait · Acrylic on Canvas",
+    title: "Private Commission",
+    medium: "Acrylic, Miniature",
   },
   {
-    src: gallerySweetheartSetJpg,
-    srcWebp: gallerySweetheartSetWebp,
-    width: 675,
-    height: 1200,
-    alt: "Set of four small custom canvases with a love lettering piece, a heart and ladybird, a martini glass, and a bow motif.",
+    // Not one of Rania's own paintings — a well-known viral digital composite, included as a
+    // shared favourite. Labeled "Digital Reproduction" (not "Original") to keep the site's
+    // "no prints, no giclée, ever" claim honest for everything else in this gallery.
+    src: galleryMonaLisaPourJpg,
+    srcWebp: galleryMonaLisaPourWebp,
+    width: 640,
+    height: 885,
+    alt: "Viral digital composite of the Mona Lisa pouring wine for the Girl with a Pearl Earring, both stepping out of their gilt frames in a gallery.",
     plateNo: "No. 07",
-    title: "Sweetheart Set",
-    medium: "Custom Commission · Acrylic on Canvas",
+    title: "Uncorked",
+    medium: "Digital Reproduction, Shared",
   },
 ];
 
@@ -164,10 +172,22 @@ export interface InstagramPost {
 
 export const instagramPosts: InstagramPost[] = [
   {
-    src: processEyeDetailJpg,
-    srcWebp: processEyeDetailWebp,
-    alt: "Close-up of a fine blue-toned eye being painted on canvas.",
-    label: "painting a fine detail in blue",
+    src: galleryQuietTulipJpg,
+    srcWebp: galleryQuietTulipWebp,
+    alt: "Modern flat-colour painting of a single cream tulip.",
+    label: "Quiet Tulip painting",
+  },
+  {
+    src: gallerySweetheartSetJpg,
+    srcWebp: gallerySweetheartSetWebp,
+    alt: "Set of four small custom canvases with love, heart, and bow motifs.",
+    label: "Sweetheart custom canvas set",
+  },
+  {
+    src: galleryCliffsideBloomJpg,
+    srcWebp: galleryCliffsideBloomWebp,
+    alt: "Small square painting of pink bougainvillea over a pale blue sky.",
+    label: "Coastal Bloom painting",
   },
   {
     src: processPaletteDetailJpg,
@@ -176,43 +196,78 @@ export const instagramPosts: InstagramPost[] = [
     label: "mixing paint on the palette",
   },
   {
-    src: galleryRoseMagnoliaJpg,
-    srcWebp: galleryRoseMagnoliaWebp,
-    alt: "Framed still life painting of a red rose and pink magnolias in a blue vase.",
-    label: "Rose and Magnolia still life",
-  },
-  {
-    src: galleryWildflowerHourJpg,
-    srcWebp: galleryWildflowerHourWebp,
-    alt: "Wildflower meadow painting at dusk.",
-    label: "Wildflower Hour meadow painting",
-  },
-  {
-    src: galleryNo10BackViewJpg,
-    srcWebp: galleryNo10BackViewWebp,
-    alt: "Miniature custom portrait of a footballer on a mini easel.",
-    label: "miniature footballer portrait commission",
+    src: processEyeDetailJpg,
+    srcWebp: processEyeDetailWebp,
+    alt: "Close-up of a fine blue-toned eye being painted on canvas.",
+    label: "painting a fine detail in blue",
   },
 ];
 
-export interface SalonThumb {
-  src: string;
-  srcWebp: string;
-  width: number;
-  height: number;
-  alt: string;
+export interface WallFrame extends Picture {
+  /** Tailwind grid-column/row placement classes for this frame's slot in the salon wall. */
+  gridClass: string;
 }
 
-/** Small decorative thumbnails tiled across the hero's salon wall. Purely decorative — empty alt. */
-export const salonWallThumbs: SalonThumb[] = [
-  { src: thumbHero, srcWebp: thumbHeroWebp, width: 173, height: 260, alt: "" },
-  { src: thumbAbout, srcWebp: thumbAboutWebp, width: 208, height: 260, alt: "" },
-  { src: thumbRoseMagnolia, srcWebp: thumbRoseMagnoliaWebp, width: 192, height: 260, alt: "" },
-  { src: thumbWildflower, srcWebp: thumbWildflowerWebp, width: 208, height: 260, alt: "" },
-  { src: thumbTulip, srcWebp: thumbTulipWebp, width: 205, height: 260, alt: "" },
-  { src: thumbCliffside, srcWebp: thumbCliffsideWebp, width: 195, height: 260, alt: "" },
-  { src: thumbNo10, srcWebp: thumbNo10Webp, width: 195, height: 260, alt: "" },
-  { src: thumbSweetheart, srcWebp: thumbSweetheartWebp, width: 146, height: 260, alt: "" },
-  { src: thumbPalette, srcWebp: thumbPaletteWebp, width: 146, height: 260, alt: "" },
-  { src: thumbEye, srcWebp: thumbEyeWebp, width: 195, height: 260, alt: "" },
+/**
+ * The hero's salon wall — 7 frames placed in a fixed 6-col × 4-row grid (desktop+ only).
+ * Uses the small pre-optimized thumbs rather than the full-size gallery images: these render
+ * at ~100–140px on screen, so serving full-size assets here would be pure waste.
+ */
+export const wallFrames: WallFrame[] = [
+  {
+    src: thumbWildflower,
+    srcWebp: thumbWildflowerWebp,
+    width: 208,
+    height: 260,
+    alt: "",
+    gridClass: "col-start-1 col-end-3 row-start-1 row-end-2",
+  },
+  {
+    src: thumbTulip,
+    srcWebp: thumbTulipWebp,
+    width: 205,
+    height: 260,
+    alt: "",
+    gridClass: "col-start-5 col-end-7 row-start-1 row-end-2",
+  },
+  {
+    src: thumbSweetheart,
+    srcWebp: thumbSweetheartWebp,
+    width: 146,
+    height: 260,
+    alt: "",
+    gridClass: "col-start-1 col-end-2 row-start-2 row-end-4",
+  },
+  {
+    src: thumbCliffside,
+    srcWebp: thumbCliffsideWebp,
+    width: 195,
+    height: 260,
+    alt: "",
+    gridClass: "col-start-6 col-end-7 row-start-2 row-end-4",
+  },
+  {
+    src: thumbNo10,
+    srcWebp: thumbNo10Webp,
+    width: 195,
+    height: 260,
+    alt: "",
+    gridClass: "col-start-1 col-end-3 row-start-4 row-end-5",
+  },
+  {
+    src: thumbRoseMagnolia,
+    srcWebp: thumbRoseMagnoliaWebp,
+    width: 192,
+    height: 260,
+    alt: "",
+    gridClass: "col-start-5 col-end-7 row-start-4 row-end-5",
+  },
+  {
+    src: thumbPalette,
+    srcWebp: thumbPaletteWebp,
+    width: 146,
+    height: 260,
+    alt: "",
+    gridClass: "col-start-2 col-end-3 row-start-4 row-end-5",
+  },
 ];

@@ -5,35 +5,26 @@ import { EASE, fadeUp, frameReveal, staggerContainer, viewportOnce } from "@/lib
 
 export function InstagramStrip() {
   return (
-    <section className="py-20 sm:py-24">
+    <section className="bg-cream py-24 text-center">
       <div className="mx-auto max-w-295 px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          variants={staggerContainer(0.12)}
-          className="mb-9 flex flex-wrap items-baseline justify-between gap-4"
+          variants={staggerContainer(0.1)}
         >
-          <div>
-            <motion.span
-              variants={fadeUp()}
-              className="mb-2 block font-label text-[12.5px] font-medium tracking-[3px] text-gold uppercase"
-            >
-              Follow Along
-            </motion.span>
-            <motion.h2 variants={fadeUp()} className="font-display text-[26px] font-semibold text-ink">
-              @{instagramHandle}
-            </motion.h2>
-          </div>
-          <motion.a
+          <motion.span
             variants={fadeUp()}
-            href={instagramUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="border-b border-hairline-strong pb-[3px] font-label text-[13px] tracking-[2px] text-ink uppercase transition-colors hover:border-gold hover:text-gold"
+            className="mb-3.5 inline-block font-label text-xs tracking-[4px] text-wine uppercase"
           >
-            Follow on Instagram
-          </motion.a>
+            Follow the Studio
+          </motion.span>
+          <motion.h2
+            variants={fadeUp()}
+            className="mb-11.5 font-display text-[26px] font-semibold text-ink sm:text-[34px]"
+          >
+            @{instagramHandle}
+          </motion.h2>
         </motion.div>
 
         <motion.div
@@ -41,9 +32,9 @@ export function InstagramStrip() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer(0.08)}
-          className="grid grid-cols-3 gap-4 sm:grid-cols-5"
+          className="grid grid-cols-3 gap-0.75 bg-gold-soft p-0.75 sm:grid-cols-5"
         >
-          {instagramPosts.map((post, i) => (
+          {instagramPosts.map((post) => (
             <motion.a
               key={post.label}
               variants={frameReveal}
@@ -51,9 +42,7 @@ export function InstagramStrip() {
               target="_blank"
               rel="noreferrer"
               aria-label={`View post: ${post.label} (opens Instagram)`}
-              className={`group relative block aspect-square overflow-hidden bg-ink ${
-                i >= 3 ? "hidden sm:block" : ""
-              }`}
+              className="group relative block aspect-square overflow-hidden"
             >
               <picture>
                 <source srcSet={post.srcWebp} type="image/webp" />
@@ -63,11 +52,10 @@ export function InstagramStrip() {
                   loading="lazy"
                   decoding="async"
                   whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.6, ease: EASE }}
+                  transition={{ duration: 0.5, ease: EASE }}
                   className="h-full w-full object-cover"
                 />
               </picture>
-              <span className="absolute inset-0 bg-ink/0 transition-colors duration-300 group-hover:bg-ink/20" />
             </motion.a>
           ))}
         </motion.div>

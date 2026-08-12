@@ -1,132 +1,127 @@
 import { motion } from "framer-motion";
-import { OrnateFrame } from "@/components/OrnateFrame";
-import { RuleDivider } from "@/components/RuleDivider";
-import { heroPainting, salonWallThumbs } from "@/data/gallery";
+import { heroGrandFrame, wallFrames } from "@/data/gallery";
 import { heroContent } from "@/data/content";
 import { EASE, fadeUp, staggerContainer } from "@/lib/motion";
 
-/**
- * Loose salon-wall placement for the small background thumbnails — percentage
- * position + rotation, hand-tuned to frame the centerpiece without crowding it.
- * Desktop (lg+) only; see the component doc below for why smaller breakpoints drop it.
- */
-const WALL_LAYOUT: { top: string; left: string; rotate: number; size: number }[] = [
-  { top: "7%", left: "9%", rotate: -4, size: 108 },
-  { top: "5%", left: "30%", rotate: 3, size: 92 },
-  { top: "6%", left: "70%", rotate: -3, size: 96 },
-  { top: "8%", left: "91%", rotate: 5, size: 104 },
-  { top: "42%", left: "6%", rotate: 4, size: 96 },
-  { top: "70%", left: "10%", rotate: -5, size: 100 },
-  { top: "40%", left: "94%", rotate: -4, size: 92 },
-  { top: "68%", left: "90%", rotate: 5, size: 104 },
-  { top: "91%", left: "16%", rotate: -3, size: 88 },
-  { top: "91%", left: "84%", rotate: 4, size: 88 },
-];
+const WALL_FRAME_BORDER = "linear-gradient(135deg,#DCC077,#8C6A26 45%,#DCC077) 1";
+const GRAND_FRAME_BORDER = "linear-gradient(135deg,#EAD9A0,#B4893A 30%,#8C6A26 60%,#EAD9A0) 1";
 
 export function SalonWallHero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-ivory pt-36 pb-20 sm:pt-40">
-      {/* Salon wall: tiled small gilt-framed thumbnails, desktop only — see doc comment. */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden lg:block">
-        {WALL_LAYOUT.map((slot, i) => {
-          const thumb = salonWallThumbs[i % salonWallThumbs.length];
-          return (
-            <div
-              key={i}
-              className="absolute -translate-x-1/2 -translate-y-1/2"
-              style={{ top: slot.top, left: slot.left, width: slot.size }}
-            >
-              <div
-                className="bg-gold p-[3px] opacity-70 shadow-[0_14px_28px_-16px_rgba(38,36,31,0.5)]"
-                style={{ transform: `rotate(${slot.rotate}deg)` }}
-              >
-                <div className="aspect-[4/5] overflow-hidden bg-ink">
-                  <picture>
-                    <source srcSet={thumb.srcWebp} type="image/webp" />
-                    <img
-                      src={thumb.src}
-                      alt=""
-                      width={thumb.width}
-                      height={thumb.height}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                  </picture>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+    <section
+      id="top"
+      className="relative flex min-h-screen flex-col items-center justify-end overflow-hidden bg-[#171310] px-6 pb-20 text-center"
+    >
+      {/* Salon wall: 7 gilt-framed thumbnails in a fixed grid, desktop+ only — see FramedWall doc. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 hidden grid-cols-6 grid-rows-4 gap-3.5 p-3.5 lg:grid"
+        style={{ filter: "saturate(0.75) brightness(0.55)" }}
+      >
+        {wallFrames.map((frame, i) => (
+          <div
+            key={i}
+            className={`relative overflow-hidden shadow-[0_10px_24px_-12px_rgba(0,0,0,0.6)] ${frame.gridClass}`}
+            style={{ borderWidth: 8, borderStyle: "solid", borderImage: WALL_FRAME_BORDER }}
+          >
+            <picture>
+              <source srcSet={frame.srcWebp} type="image/webp" />
+              <img
+                src={frame.src}
+                alt=""
+                width={frame.width}
+                height={frame.height}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
+            </picture>
+          </div>
+        ))}
+        {/* Faint wainscot lines + a warm wash over the tiled frames — matches the mockup's .wall::before. */}
+        <div
+          className="pointer-events-none absolute inset-0 z-10"
+          style={{
+            background:
+              "repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 38px), linear-gradient(180deg, rgba(60,50,35,0.35), rgba(30,24,16,0.5))",
+          }}
+        />
       </div>
+
+      {/* Darkens toward the bottom so the hero text stays legible over the wall. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-20"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(12,10,8,0.15) 0%, rgba(12,10,8,0.35) 40%, rgba(12,10,8,0.88) 78%, rgba(12,10,8,0.97) 100%)",
+        }}
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
+        className="relative z-30 mt-auto w-full pt-[20vh] lg:pt-[26vh]"
+      >
+        <div
+          className="relative mx-auto aspect-[4/5] w-[min(300px,60vw)] overflow-hidden shadow-[0_30px_60px_-20px_rgba(0,0,0,0.7),inset_0_0_0_2px_rgba(0,0,0,0.3)]"
+          style={{ borderWidth: 14, borderStyle: "solid", borderImage: GRAND_FRAME_BORDER }}
+        >
+          <picture>
+            <source srcSet={heroGrandFrame.srcWebp} type="image/webp" />
+            <img
+              src={heroGrandFrame.src}
+              alt={heroGrandFrame.alt}
+              width={heroGrandFrame.width}
+              height={heroGrandFrame.height}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              className="h-full w-full object-cover"
+            />
+          </picture>
+        </div>
+      </motion.div>
 
       <motion.div
         initial="hidden"
         animate="visible"
-        variants={staggerContainer(0.15, 0.1)}
-        className="relative mx-auto max-w-160 px-8 text-center"
+        variants={staggerContainer(0.15, 0.35)}
+        className="relative z-30 mx-auto mt-9 max-w-160 text-ivory"
       >
-        <motion.span
-          variants={fadeUp()}
-          className="mb-5 block font-label text-[12.5px] font-medium tracking-[3px] text-gold uppercase"
-        >
-          {heroContent.eyebrow}
-        </motion.span>
-
         <motion.h1
           variants={fadeUp()}
-          className="mb-3 font-display text-[52px] leading-none font-semibold tracking-[6px] text-ink sm:text-[68px] sm:tracking-[10px]"
+          className="font-display text-[40px] font-semibold tracking-[8px] text-ivory indent-2 sm:text-[56px] sm:tracking-[14px] sm:indent-3.5 lg:text-[78px]"
         >
           {heroContent.title}
         </motion.h1>
 
-        <motion.p
-          variants={fadeUp()}
-          className="mb-8 font-label text-sm tracking-[3px] text-ink-soft italic sm:text-base"
-        >
+        <motion.p variants={fadeUp()} className="mt-2.5 font-display text-lg text-gold-soft italic">
           {heroContent.phonetic}
         </motion.p>
 
-        {/*
-          Deliberately NOT part of the shared stagger above: this is the LCP element, so it
-          gets its own near-immediate fade-in (independent initial/animate breaks variant
-          inheritance) instead of waiting through 3 siblings' worth of staggerChildren delay.
-          Framer Motion still renders it painted at mount either way — this only changes how
-          long the fade-in itself takes before it visually settles.
-        */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
-          className="mx-auto mb-10 w-full max-w-90 sm:max-w-105"
-        >
-          <OrnateFrame
-            src={heroPainting.src}
-            srcWebp={heroPainting.srcWebp}
-            alt={heroPainting.alt}
-            width={heroPainting.width}
-            height={heroPainting.height}
-            plateNo={heroPainting.plateNo}
-            title={heroPainting.title}
-            medium={heroPainting.medium}
-            priority
-          />
-        </motion.div>
-
         <motion.p
           variants={fadeUp()}
-          className="mb-6 font-script text-[28px] leading-tight text-gold sm:text-[34px]"
+          className="mx-auto mt-5.5 max-w-115 font-body text-lg text-ivory/72 italic"
         >
           “{heroContent.quote}”
         </motion.p>
 
-        <motion.div variants={fadeUp()} className="mb-6 flex justify-center">
-          <RuleDivider align="center" />
+        <motion.div variants={fadeUp()} className="mt-9.5 flex flex-wrap justify-center gap-4">
+          <a
+            href="#gallery"
+            className="bg-gold-soft px-7.5 py-3.5 font-label text-[11.5px] tracking-[2px] text-[#12140F] uppercase transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-ivory"
+          >
+            View the Gallery
+          </a>
+          <a
+            href="#commissions"
+            className="border border-gold-soft px-7.5 py-3.5 font-label text-[11.5px] tracking-[2px] text-ivory uppercase transition-colors duration-200 hover:bg-gold-soft/12"
+          >
+            Commission a Piece
+          </a>
         </motion.div>
-
-        <motion.p variants={fadeUp()} className="mx-auto max-w-105 font-body text-lg text-ink-soft sm:text-xl">
-          {heroContent.subhead}
-        </motion.p>
       </motion.div>
     </section>
   );

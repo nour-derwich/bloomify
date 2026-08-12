@@ -6,20 +6,19 @@
    ============================================================ */
 @theme {
   /* Colors */
-  --color-ivory: #f7f3ea;
-  --color-ivory-deep: #f0eadc;
-  --color-ink: #26241f;
-  --color-ink-soft: #5b564c;
-  --color-gold: #a9822e;
-  --color-gold-light: #c7a75b;
-  --color-green: #3c4a3b;
-  --color-hairline: rgba(38, 36, 31, 0.18);
-  --color-hairline-strong: rgba(38, 36, 31, 0.3);
-
-  /* Wine — the dark accent sections (When/Where block, RSVP badge) */
-  --color-wine: #4a1421;
-  --color-wine-deep: #34101a;
-  --color-wine-line: rgba(247, 243, 234, 0.16);
+  --color-noir: #12140f;
+  --color-cream: #f5f0e3;
+  --color-cream-deep: #ede5d0;
+  --color-ink: #231f1a;
+  --color-ink-soft: #6b6355;
+  --color-ivory: #f2ecdd;
+  --color-gold: #c9a227;
+  --color-gold-soft: #e0c46e;
+  --color-wine: #3b1420;
+  --color-wine-deep: #28101a;
+  --color-hairline: rgba(35, 31, 26, 0.18);
+  --color-hairline-strong: rgba(35, 31, 26, 0.3);
+  --color-line-dark: rgba(201, 162, 39, 0.35);
 
   /* Type */
   --font-display: "Playfair Display", "Times New Roman", serif;
@@ -42,10 +41,17 @@ html {
 }
 
 body {
-  background: var(--color-ivory);
+  background: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-gold-soft);
+  color: var(--color-noir);
 }
 
 :focus-visible {

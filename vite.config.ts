@@ -4,10 +4,13 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
 
 /**
- * Injects <link rel="preload"> for the hero painting (LCP element) once its
+ * Injects <link rel="preload"> for the hero grand-frame painting (LCP element) once its
  * final hashed filename is known, so the browser starts fetching it before
  * React ever mounts — rather than relying only on the <img fetchpriority="high">
  * discovered later during render.
+ *
+ * The filename filter below must match whatever image `heroGrandFrame` in
+ * src/data/gallery.ts points at — if that changes, update this too.
  */
 function preloadHeroImage(): Plugin {
   return {
@@ -20,7 +23,7 @@ function preloadHeroImage(): Plugin {
 
         const heroAssets = Object.values(bundle).filter(
           (item): item is Extract<typeof item, { type: 'asset' }> =>
-            item.type === 'asset' && item.fileName.includes('hero-bloom-reverie'),
+            item.type === 'asset' && item.fileName.includes('process-eye-detail'),
         )
         const webp = heroAssets.find((a) => a.fileName.endsWith('.webp'))
         const jpg = heroAssets.find((a) => a.fileName.endsWith('.jpg'))
