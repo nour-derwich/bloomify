@@ -33,6 +33,12 @@ import thumbSweetheart from "@/assets/images/thumb-gallery-sweetheart-set.jpg";
 import thumbSweetheartWebp from "@/assets/images/thumb-gallery-sweetheart-set.webp";
 import thumbMonaLisa from "@/assets/images/thumb-gallery-mona-lisa-pour.jpg";
 import thumbMonaLisaWebp from "@/assets/images/thumb-gallery-mona-lisa-pour.webp";
+import thumbAbout from "@/assets/images/thumb-about-artist-at-work.jpg";
+import thumbAboutWebp from "@/assets/images/thumb-about-artist-at-work.webp";
+import thumbHeroBloomReverie from "@/assets/images/thumb-hero-bloom-reverie.jpg";
+import thumbHeroBloomReverieWebp from "@/assets/images/thumb-hero-bloom-reverie.webp";
+import thumbPalette from "@/assets/images/thumb-process-palette-detail.jpg";
+import thumbPaletteWebp from "@/assets/images/thumb-process-palette-detail.webp";
 
 export interface Picture {
   src: string;
@@ -194,7 +200,10 @@ export interface WallFrame extends Picture {
 }
 
 /**
- * The hero's salon wall — 7 frames placed in a fixed 6-col × 4-row grid (desktop+ only).
+ * The hero's salon wall — a denser hang of gilt-framed thumbnails in a 6-col × 4-row grid
+ * (desktop+ only), deliberately fuller than a sparse 7-frame layout so scrolling past it reads
+ * as walking past many paintings, not glimpsing a few. Columns 3–4 stay mostly clear since the
+ * grand frame + hero text sit centered on top of them.
  * Uses the small pre-optimized thumbs rather than the full-size gallery images: these render
  * at ~100–140px on screen, so serving full-size assets here would be pure waste.
  */
@@ -250,12 +259,40 @@ export const wallFrames: WallFrame[] = [
   {
     // Not one of Rania's own paintings — a well-known viral digital composite, included as a
     // shared favourite in the salon wall (decorative only, so no plate label/attribution needed
-    // the way a numbered gallery piece would).
+    // the way a numbered gallery piece would). Placed here — column 2, row 2 — rather than its
+    // original row-4/column-2 slot, which sat almost entirely behind the "Commission" button.
     src: thumbMonaLisa,
     srcWebp: thumbMonaLisaWebp,
     width: 188,
     height: 260,
     alt: "",
-    gridClass: "col-start-2 col-end-3 row-start-4 row-end-5",
+    gridClass: "col-start-2 col-end-3 row-start-2 row-end-3",
+  },
+  {
+    // Behind-the-scenes: the same studio photo used in Our Story, reused here for wall density.
+    src: thumbAbout,
+    srcWebp: thumbAboutWebp,
+    width: 208,
+    height: 260,
+    alt: "",
+    gridClass: "col-start-2 col-end-3 row-start-3 row-end-4",
+  },
+  {
+    // The dress/rose portrait from the very first draft of this site — brought back in as
+    // wall texture now that it isn't the featured piece anywhere else.
+    src: thumbHeroBloomReverie,
+    srcWebp: thumbHeroBloomReverieWebp,
+    width: 173,
+    height: 260,
+    alt: "",
+    gridClass: "col-start-5 col-end-6 row-start-2 row-end-3",
+  },
+  {
+    src: thumbPalette,
+    srcWebp: thumbPaletteWebp,
+    width: 146,
+    height: 260,
+    alt: "",
+    gridClass: "col-start-5 col-end-6 row-start-3 row-end-4",
   },
 ];
