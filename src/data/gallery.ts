@@ -17,8 +17,6 @@ import processPaletteDetailJpg from "@/assets/images/process-palette-detail.jpg"
 import processPaletteDetailWebp from "@/assets/images/process-palette-detail.webp";
 import processEyeDetailJpg from "@/assets/images/process-eye-detail.jpg";
 import processEyeDetailWebp from "@/assets/images/process-eye-detail.webp";
-import galleryMonaLisaPourJpg from "@/assets/images/gallery-mona-lisa-pour.jpg";
-import galleryMonaLisaPourWebp from "@/assets/images/gallery-mona-lisa-pour.webp";
 
 // Small thumbs (~260px, JPEG + WebP) for the salon-wall background tiles.
 import thumbRoseMagnolia from "@/assets/images/thumb-gallery-rose-magnolia.jpg";
@@ -33,8 +31,8 @@ import thumbNo10 from "@/assets/images/thumb-gallery-no10-backview.jpg";
 import thumbNo10Webp from "@/assets/images/thumb-gallery-no10-backview.webp";
 import thumbSweetheart from "@/assets/images/thumb-gallery-sweetheart-set.jpg";
 import thumbSweetheartWebp from "@/assets/images/thumb-gallery-sweetheart-set.webp";
-import thumbPalette from "@/assets/images/thumb-process-palette-detail.jpg";
-import thumbPaletteWebp from "@/assets/images/thumb-process-palette-detail.webp";
+import thumbMonaLisa from "@/assets/images/thumb-gallery-mona-lisa-pour.jpg";
+import thumbMonaLisaWebp from "@/assets/images/thumb-gallery-mona-lisa-pour.webp";
 
 export interface Picture {
   src: string;
@@ -148,19 +146,6 @@ export const galleryPieces: GalleryPiece[] = [
     title: "Private Commission",
     medium: "Acrylic, Miniature",
   },
-  {
-    // Not one of Rania's own paintings — a well-known viral digital composite, included as a
-    // shared favourite. Labeled "Digital Reproduction" (not "Original") to keep the site's
-    // "no prints, no giclée, ever" claim honest for everything else in this gallery.
-    src: galleryMonaLisaPourJpg,
-    srcWebp: galleryMonaLisaPourWebp,
-    width: 640,
-    height: 885,
-    alt: "Viral digital composite of the Mona Lisa pouring wine for the Girl with a Pearl Earring, both stepping out of their gilt frames in a gallery.",
-    plateNo: "No. 07",
-    title: "Uncorked",
-    medium: "Digital Reproduction, Shared",
-  },
 ];
 
 export interface InstagramPost {
@@ -263,9 +248,12 @@ export const wallFrames: WallFrame[] = [
     gridClass: "col-start-5 col-end-7 row-start-4 row-end-5",
   },
   {
-    src: thumbPalette,
-    srcWebp: thumbPaletteWebp,
-    width: 146,
+    // Not one of Rania's own paintings — a well-known viral digital composite, included as a
+    // shared favourite in the salon wall (decorative only, so no plate label/attribution needed
+    // the way a numbered gallery piece would).
+    src: thumbMonaLisa,
+    srcWebp: thumbMonaLisaWebp,
+    width: 188,
     height: 260,
     alt: "",
     gridClass: "col-start-2 col-end-3 row-start-4 row-end-5",
