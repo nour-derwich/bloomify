@@ -17,6 +17,8 @@ import processPaletteDetailJpg from "@/assets/images/process-palette-detail.jpg"
 import processPaletteDetailWebp from "@/assets/images/process-palette-detail.webp";
 import processEyeDetailJpg from "@/assets/images/process-eye-detail.jpg";
 import processEyeDetailWebp from "@/assets/images/process-eye-detail.webp";
+import heroBloomReverieJpg from "@/assets/images/hero-bloom-reverie.jpg";
+import heroBloomReverieWebp from "@/assets/images/hero-bloom-reverie.webp";
 
 // Small thumbs (~260px, JPEG + WebP) for the salon-wall background tiles.
 import thumbRoseMagnolia from "@/assets/images/thumb-gallery-rose-magnolia.jpg";
@@ -31,8 +33,8 @@ import thumbNo10 from "@/assets/images/thumb-gallery-no10-backview.jpg";
 import thumbNo10Webp from "@/assets/images/thumb-gallery-no10-backview.webp";
 import thumbSweetheart from "@/assets/images/thumb-gallery-sweetheart-set.jpg";
 import thumbSweetheartWebp from "@/assets/images/thumb-gallery-sweetheart-set.webp";
-import thumbPalette from "@/assets/images/thumb-process-palette-detail.jpg";
-import thumbPaletteWebp from "@/assets/images/thumb-process-palette-detail.webp";
+import thumbCandleJar from "@/assets/images/thumb-gallery-candle-jar.jpg";
+import thumbCandleJarWebp from "@/assets/images/thumb-gallery-candle-jar.webp";
 
 export interface Picture {
   src: string;
@@ -43,15 +45,15 @@ export interface Picture {
 }
 
 /**
- * The hero's centerpiece grand frame — "Study in Blue," an in-progress oil portrait.
- * Note: this is a full-size (non-thumb) image since it's the LCP element.
+ * The hero's centerpiece grand frame — "Bloom & Reverie," a portrait in a starry-night-patterned
+ * gown, framed by two large painted roses. Note: full-size (non-thumb) since it's the LCP element.
  */
 export const heroGrandFrame: Picture = {
-  src: processEyeDetailJpg,
-  srcWebp: processEyeDetailWebp,
-  width: 736,
-  height: 981,
-  alt: "Close-up of a fine blue-toned eye being painted on canvas, mid-brushstroke — an in-progress oil portrait study.",
+  src: heroBloomReverieJpg,
+  srcWebp: heroBloomReverieWebp,
+  width: 932,
+  height: 1400,
+  alt: "Textured oil portrait of a woman in a starry-night-patterned gown, framed by two large painted roses at her shoulders.",
 };
 
 export const storyPhoto: Picture = {
@@ -260,10 +262,10 @@ export const wallFrames: WallFrame[] = [
     gridClass: "col-start-5 col-end-7 row-start-4 row-end-5",
   },
   {
-    // w7 — palette-closeup
-    src: thumbPalette,
-    srcWebp: thumbPaletteWebp,
-    width: 146,
+    // w7 — swapped from palette-closeup to a newer painting photo (candle-in-jar still life)
+    src: thumbCandleJar,
+    srcWebp: thumbCandleJarWebp,
+    width: 208,
     height: 260,
     alt: "",
     gridClass: "col-start-2 col-end-3 row-start-4 row-end-5",

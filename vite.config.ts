@@ -23,7 +23,7 @@ function preloadHeroImage(): Plugin {
 
         const heroAssets = Object.values(bundle).filter(
           (item): item is Extract<typeof item, { type: 'asset' }> =>
-            item.type === 'asset' && item.fileName.includes('process-eye-detail'),
+            item.type === 'asset' && item.fileName.includes('hero-bloom-reverie'),
         )
         const webp = heroAssets.find((a) => a.fileName.endsWith('.webp'))
         const jpg = heroAssets.find((a) => a.fileName.endsWith('.jpg'))
