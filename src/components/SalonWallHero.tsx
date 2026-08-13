@@ -62,7 +62,7 @@ export function SalonWallHero() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
-        className="relative z-30 mt-auto w-full pt-[20vh] lg:pt-[26vh]"
+        className="relative z-30 mt-auto w-full pt-[20vh] min-[760px]:pt-[26vh]"
       >
         <div
           className="relative mx-auto aspect-[4/5] w-[min(300px,60vw)] overflow-hidden shadow-[0_30px_60px_-20px_rgba(0,0,0,0.7),inset_0_0_0_2px_rgba(0,0,0,0.3)]"
@@ -92,18 +92,18 @@ export function SalonWallHero() {
       >
         <motion.h1
           variants={fadeUp()}
-          className="font-display text-[40px] font-semibold tracking-[8px] text-ivory indent-2 sm:text-[56px] sm:tracking-[14px] sm:indent-3.5 lg:text-[78px]"
+          className="font-display text-[clamp(40px,7vw,78px)] font-semibold tracking-[8px] text-ivory indent-2 min-[760px]:tracking-[14px] min-[760px]:indent-3.5"
         >
           {heroContent.title}
         </motion.h1>
 
-        <motion.p variants={fadeUp()} className="mt-2.5 font-display text-lg text-gold-soft italic">
+        <motion.p variants={fadeUp()} className="mt-2.5 font-display text-[19px] text-gold-soft italic">
           {heroContent.phonetic}
         </motion.p>
 
         <motion.p
           variants={fadeUp()}
-          className="mx-auto mt-5.5 max-w-115 font-body text-lg text-ivory/72 italic"
+          className="mx-auto mt-5.5 max-w-115 font-body text-lg leading-[1.6] text-ivory/72 italic"
         >
           “{heroContent.quote}”
         </motion.p>
@@ -111,13 +111,13 @@ export function SalonWallHero() {
         <motion.div variants={fadeUp()} className="mt-9.5 flex flex-wrap justify-center gap-4">
           <a
             href="#gallery"
-            className="bg-gold-soft px-7.5 py-3.5 font-label text-[11.5px] tracking-[2px] text-[#12140F] uppercase transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-ivory"
+            className="bg-gold-soft px-7.5 py-3.75 font-label text-[11.5px] tracking-[2px] text-noir uppercase transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-ivory"
           >
             View the Gallery
           </a>
           <a
             href="#commissions"
-            className="border border-gold-soft px-7.5 py-3.5 font-label text-[11.5px] tracking-[2px] text-ivory uppercase transition-colors duration-200 hover:bg-gold-soft/12"
+            className="border border-gold-soft px-7.5 py-3.75 font-label text-[11.5px] tracking-[2px] text-ivory uppercase transition-colors duration-200 hover:bg-gold-soft/12"
           >
             Commission a Piece
           </a>
