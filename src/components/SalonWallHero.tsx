@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { heroGrandFrame, wallFrames } from "@/data/gallery";
+import { heroGrandFrame, heroSilhouettes, wallFrames } from "@/data/gallery";
 import { heroContent } from "@/data/content";
 import { EASE, fadeUp, staggerContainer } from "@/lib/motion";
 
@@ -57,6 +57,36 @@ export function SalonWallHero() {
             "linear-gradient(180deg, rgba(12,10,8,0.15) 0%, rgba(12,10,8,0.35) 40%, rgba(12,10,8,0.88) 78%, rgba(12,10,8,0.97) 100%)",
         }}
       />
+
+      {/* Two visitors flanking the hero, standing at the edges like they're in the gallery too. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-[2%] z-40 h-[78%] w-[34%] max-w-70 mix-blend-multiply max-[700px]:w-[44%]"
+      >
+        <img
+          src={heroSilhouettes.female.src}
+          alt=""
+          width={heroSilhouettes.female.width}
+          height={heroSilhouettes.female.height}
+          loading="lazy"
+          decoding="async"
+          className="block h-full w-full object-contain object-bottom"
+        />
+      </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[2%] bottom-0 z-40 h-[78%] w-[34%] max-w-70 mix-blend-multiply max-[700px]:w-[44%]"
+      >
+        <img
+          src={heroSilhouettes.male.src}
+          alt=""
+          width={heroSilhouettes.male.width}
+          height={heroSilhouettes.male.height}
+          loading="lazy"
+          decoding="async"
+          className="block h-full w-full object-contain object-bottom"
+        />
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 16 }}

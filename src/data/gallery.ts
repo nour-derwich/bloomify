@@ -35,6 +35,8 @@ import thumbSweetheart from "@/assets/images/thumb-gallery-sweetheart-set.jpg";
 import thumbSweetheartWebp from "@/assets/images/thumb-gallery-sweetheart-set.webp";
 import thumbCandleJar from "@/assets/images/thumb-gallery-candle-jar.jpg";
 import thumbCandleJarWebp from "@/assets/images/thumb-gallery-candle-jar.webp";
+import silhouetteFemalePng from "@/assets/images/silhouette-female.png";
+import silhouetteMalePng from "@/assets/images/silhouette-male.png";
 
 export interface Picture {
   src: string;
@@ -54,6 +56,16 @@ export const heroGrandFrame: Picture = {
   width: 932,
   height: 1400,
   alt: "Textured oil portrait of a woman in a starry-night-patterned gown, framed by two large painted roses at her shoulders.",
+};
+
+/**
+ * Two silhouettes flanking the hero, standing at the edges like visitors in the gallery.
+ * Distinct source images (not a mirrored copy) — cropped from a Vecteezy free-tier asset
+ * (resource ID 1196237), native ~95×504 / ~138×504px. See the footer attribution.
+ */
+export const heroSilhouettes = {
+  female: { src: silhouetteFemalePng, width: 95, height: 504 },
+  male: { src: silhouetteMalePng, width: 138, height: 504 },
 };
 
 export const storyPhoto: Picture = {

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { contactLinks, footerLinks, footerCopyright } from "@/data/content";
+import { contactLinks, footerLinks, footerCopyright, imageAttribution } from "@/data/content";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function Footer() {
@@ -80,6 +80,13 @@ export function Footer() {
             {footerCopyright[1]}
           </span>
         </motion.div>
+
+        <motion.p
+          variants={fadeUp()}
+          className="mt-3 text-center font-label text-[10px] text-ivory/25"
+        >
+          {imageAttribution}
+        </motion.p>
       </motion.div>
     </footer>
   );

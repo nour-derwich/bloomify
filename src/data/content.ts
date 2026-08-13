@@ -76,3 +76,7 @@ export const footerCopyright = [
   "© 2026 Bloomify. All paintings are original works by Rania Derouich.",
   "Made by hand, one canvas at a time.",
 ];
+
+// Required under Vecteezy's free-tier license for the two hero silhouette images
+// (resource ID 1196237). Drop this if the Pro license is purchased instead.
+export const imageAttribution = "Silhouette image via Vecteezy";
