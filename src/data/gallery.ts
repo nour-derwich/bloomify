@@ -217,10 +217,11 @@ export const wallFrames: WallFrame[] = [
     gridClass: "col-start-1 col-end-3 row-start-1 row-end-2",
   },
   {
-    // w2 — tulip
-    src: thumbTulip,
-    srcWebp: thumbTulipWebp,
-    width: 205,
+    // w2 — swapped from tulip to the candle-jar painting: this slot (top row) is always fully
+    // visible, unlike w7 below, which sits mostly behind the CTA buttons/scrim at the fold.
+    src: thumbCandleJar,
+    srcWebp: thumbCandleJarWebp,
+    width: 208,
     height: 260,
     alt: "",
     gridClass: "col-start-5 col-end-7 row-start-1 row-end-2",
@@ -262,10 +263,12 @@ export const wallFrames: WallFrame[] = [
     gridClass: "col-start-5 col-end-7 row-start-4 row-end-5",
   },
   {
-    // w7 — swapped from palette-closeup to a newer painting photo (candle-in-jar still life)
-    src: thumbCandleJar,
-    srcWebp: thumbCandleJarWebp,
-    width: 208,
+    // w7 — tulip, moved here from w2 to make room for the candle-jar painting in the visible
+    // top-row slot. This position is mostly hidden behind the CTA buttons/scrim regardless of
+    // which image occupies it.
+    src: thumbTulip,
+    srcWebp: thumbTulipWebp,
+    width: 205,
     height: 260,
     alt: "",
     gridClass: "col-start-2 col-end-3 row-start-4 row-end-5",
