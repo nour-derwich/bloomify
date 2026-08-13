@@ -64,10 +64,10 @@ export function SalonWallHero() {
         className="pointer-events-none absolute bottom-0 left-[2%] z-40 h-[78%] w-[34%] max-w-70 mix-blend-multiply max-[700px]:w-[44%]"
       >
         <img
-          src={heroSilhouettes.female.src}
+          src={heroSilhouettes.male.src}
           alt=""
-          width={heroSilhouettes.female.width}
-          height={heroSilhouettes.female.height}
+          width={heroSilhouettes.male.width}
+          height={heroSilhouettes.male.height}
           loading="lazy"
           decoding="async"
           className="block h-full w-full object-contain object-bottom"
@@ -78,10 +78,10 @@ export function SalonWallHero() {
         className="pointer-events-none absolute right-[2%] bottom-0 z-40 h-[78%] w-[34%] max-w-70 mix-blend-multiply max-[700px]:w-[44%]"
       >
         <img
-          src={heroSilhouettes.male.src}
+          src={heroSilhouettes.female.src}
           alt=""
-          width={heroSilhouettes.male.width}
-          height={heroSilhouettes.male.height}
+          width={heroSilhouettes.female.width}
+          height={heroSilhouettes.female.height}
           loading="lazy"
           decoding="async"
           className="block h-full w-full object-contain object-bottom"
