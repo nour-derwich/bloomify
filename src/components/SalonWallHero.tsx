@@ -12,10 +12,12 @@ export function SalonWallHero() {
       id="top"
       className="relative flex min-h-screen flex-col items-center justify-end overflow-hidden bg-[#171310] px-6 pb-20 text-center"
     >
-      {/* Salon wall: 7 gilt-framed thumbnails in a fixed grid, desktop+ only — see FramedWall doc. */}
+      {/* Salon wall: 7 gilt-framed thumbnails in a fixed grid, shown at every viewport size so
+          mobile (the bulk of traffic) gets the same photo-wall backdrop as desktop instead of
+          flat black — see FramedWall doc. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 hidden grid-cols-6 grid-rows-4 gap-3.5 p-3.5 lg:grid"
+        className="absolute inset-0 grid grid-cols-6 grid-rows-4 gap-3.5 p-3.5"
         style={{ filter: "saturate(0.75) brightness(0.55)" }}
       >
         {wallFrames.map((frame, i) => (
