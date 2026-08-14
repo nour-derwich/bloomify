@@ -59,7 +59,7 @@ export function SalonWallHero() {
       />
 
       {/* Two visitors flanking the hero, standing at the edges like they're in the gallery too —
-          fading in after the grand frame settles, like they've just stepped into the room. */}
+          fading in together after the grand frame settles, like they've just stepped into the room. */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -80,7 +80,7 @@ export function SalonWallHero() {
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: EASE, delay: 0.75 }}
+        transition={{ duration: 0.8, ease: EASE, delay: 0.6 }}
         aria-hidden="true"
         className="pointer-events-none absolute right-[2%] bottom-0 z-40 hidden h-[78%] w-[34%] max-w-70 mix-blend-multiply lg:block"
       >
