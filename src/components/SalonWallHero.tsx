@@ -65,7 +65,7 @@ export function SalonWallHero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: EASE, delay: 0.6 }}
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-[2%] z-40 hidden h-[78%] w-[34%] max-w-70 mix-blend-multiply lg:block"
+        className="pointer-events-none absolute bottom-0 left-[2%] z-40 hidden h-[95%] w-[42%] max-w-96 mix-blend-multiply lg:block"
       >
         <img
           src={heroSilhouettes.male.src}
@@ -82,7 +82,7 @@ export function SalonWallHero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: EASE, delay: 0.6 }}
         aria-hidden="true"
-        className="pointer-events-none absolute right-[2%] bottom-0 z-40 hidden h-[78%] w-[34%] max-w-70 mix-blend-multiply lg:block"
+        className="pointer-events-none absolute right-[2%] bottom-0 z-40 hidden h-[95%] w-[42%] max-w-96 mix-blend-multiply lg:block"
       >
         <img
           src={heroSilhouettes.female.src}

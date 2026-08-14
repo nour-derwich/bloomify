@@ -13,6 +13,8 @@ import galleryNo10BackViewJpg from "@/assets/images/gallery-no10-backview.jpg";
 import galleryNo10BackViewWebp from "@/assets/images/gallery-no10-backview.webp";
 import gallerySweetheartSetJpg from "@/assets/images/gallery-sweetheart-set.jpg";
 import gallerySweetheartSetWebp from "@/assets/images/gallery-sweetheart-set.webp";
+import galleryCandleJarJpg from "@/assets/images/gallery-candle-jar.jpg";
+import galleryCandleJarWebp from "@/assets/images/gallery-candle-jar.webp";
 import processPaletteDetailJpg from "@/assets/images/process-palette-detail.jpg";
 import processPaletteDetailWebp from "@/assets/images/process-palette-detail.webp";
 import processEyeDetailJpg from "@/assets/images/process-eye-detail.jpg";
@@ -159,6 +161,16 @@ export const galleryPieces: GalleryPiece[] = [
     plateNo: "No. 06",
     title: "Private Commission",
     medium: "Acrylic, Miniature",
+  },
+  {
+    src: galleryCandleJarJpg,
+    srcWebp: galleryCandleJarWebp,
+    width: 1120,
+    height: 1400,
+    alt: "Still life oil painting of a lit candle in a glass jar, displayed on a wooden desk.",
+    plateNo: "No. 07",
+    title: "Candlelight Jar",
+    medium: "Oil on Canvas",
   },
 ];
 
