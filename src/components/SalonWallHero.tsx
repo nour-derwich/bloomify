@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { heroGrandFrame, heroSilhouettes, wallFrames } from "@/data/gallery";
 import { heroContent } from "@/data/content";
-import { EASE, fadeUp, staggerContainer } from "@/lib/motion";
+import { EASE, fadeUp, scaleIn, staggerContainer } from "@/lib/motion";
 
 const WALL_FRAME_BORDER = "linear-gradient(135deg,#DCC077,#8C6A26 45%,#DCC077) 1";
 const GRAND_FRAME_BORDER = "linear-gradient(135deg,#EAD9A0,#B4893A 30%,#8C6A26 60%,#EAD9A0) 1";
@@ -14,15 +14,20 @@ export function SalonWallHero() {
     >
       {/* Salon wall: 7 gilt-framed thumbnails in a fixed grid, shown at every viewport size so
           mobile (the bulk of traffic) gets the same photo-wall backdrop as desktop instead of
-          flat black — see FramedWall doc. */}
-      <div
+          flat black — see FramedWall doc. Tiles fade + settle into place on load, like frames
+          being hung one after another, instead of appearing all at once. */}
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer(0.06)}
         aria-hidden="true"
         className="absolute inset-0 grid grid-cols-6 grid-rows-4 gap-3.5 p-3.5"
         style={{ filter: "saturate(0.75) brightness(0.55)" }}
       >
         {wallFrames.map((frame, i) => (
-          <div
+          <motion.div
             key={i}
+            variants={scaleIn}
             className={`relative overflow-hidden shadow-[0_10px_24px_-12px_rgba(0,0,0,0.6)] ${frame.gridClass}`}
             style={{ borderWidth: 8, borderStyle: "solid", borderImage: WALL_FRAME_BORDER }}
           >
@@ -38,7 +43,7 @@ export function SalonWallHero() {
                 className="h-full w-full object-cover"
               />
             </picture>
-          </div>
+          </motion.div>
         ))}
         {/* Faint wainscot lines + a warm wash over the tiled frames — matches the mockup's .wall::before. */}
         <div
@@ -48,7 +53,7 @@ export function SalonWallHero() {
               "repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 38px), linear-gradient(180deg, rgba(60,50,35,0.35), rgba(30,24,16,0.5))",
           }}
         />
-      </div>
+      </motion.div>
 
       {/* Darkens toward the bottom so the hero text stays legible over the wall. */}
       <div

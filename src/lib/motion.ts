@@ -25,6 +25,16 @@ export function staggerContainer(stagger = 0.12, delayChildren = 0): Variants {
   };
 }
 
+/** Fade + gentle scale-up from center, no vertical shift — for background/decorative reveals. */
+export const scaleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: EASE },
+  },
+};
+
 /** Gallery frame: fade + slight scale, used with staggerContainer parents. */
 export const frameReveal: Variants = {
   hidden: { opacity: 0, y: 28, scale: 0.96 },
